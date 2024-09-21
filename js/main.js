@@ -14,6 +14,13 @@ function draw() {
     ctx.fillRect(100, 50, 100, 100);
     ctx.clearRect(120, 70, 60, 60);
     ctx.strokeRect(125, 75, 50, 50);
+
+    // Triagle
+    ctx.beginPath(); // command to init starting point
+    ctx.moveTo(10, 120); // moving the pen to specified coordinates (x,y) or Starting point
+    ctx.lineTo(35, 95); // second dot coordinates
+    ctx.lineTo(35, 145); // last dot coordinates
+    ctx.fill();
   }
 }
 
