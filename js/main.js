@@ -21,6 +21,19 @@ function draw() {
     ctx.lineTo(35, 95); // second dot coordinates
     ctx.lineTo(35, 145); // last dot coordinates
     ctx.fill();
+
+    // Smiling face
+    // arc (x, y, radius, startAngle, endAngle, counterclockwise)
+    // arcTo(x1, y1, x2, y2, radius)
+    ctx.beginPath();
+    ctx.arc(60, 200, 50, 0, 2 * Math.PI, true); // outer
+    ctx.moveTo(95, 200); // remove starting line (x1 + radius1)
+    ctx.arc(60, 200, 35, 0, Math.PI, false); // inner
+    ctx.moveTo(50, 185); // (next x + radius, next y)
+    ctx.arc(45, 185, 5, 0, 2 * Math.PI, true);
+    ctx.moveTo(80, 185);
+    ctx.arc(75, 185, 5, 0, 2 * Math.PI, true);
+    ctx.stroke();
   }
 }
 
