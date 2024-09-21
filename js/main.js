@@ -34,6 +34,21 @@ function draw() {
     ctx.moveTo(80, 185);
     ctx.arc(75, 185, 5, 0, 2 * Math.PI, true);
     ctx.stroke();
+
+    // Filled triangle
+    ctx.beginPath();
+    ctx.moveTo(10, 260);
+    ctx.lineTo(10, 340);
+    ctx.lineTo(90, 260);
+    ctx.fill();
+
+    // Stroked triangle
+    ctx.beginPath();
+    ctx.moveTo(110, 360); // bottom right
+    ctx.lineTo(110, 280); // top right
+    ctx.lineTo(30, 360); // bottom left
+    ctx.closePath(); // add last straight line,
+    ctx.stroke();
   }
 }
 
