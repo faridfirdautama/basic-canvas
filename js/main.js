@@ -26,7 +26,7 @@ function draw() {
     // arc (x, y, radius, startAngle, endAngle, counterclockwise)
     // arcTo(x1, y1, x2, y2, radius)
     ctx.beginPath();
-    ctx.arc(60, 200, 50, 0, 2 * Math.PI, true); // outer
+    ctx.arc(60, 200, 50, 0, 1.5 * Math.PI, true); // outer
     ctx.moveTo(95, 200); // remove starting line (x1 + radius1)
     ctx.arc(60, 200, 35, 0, Math.PI, false); // inner
     ctx.moveTo(50, 185); // (next x + radius, next y)
@@ -49,6 +49,27 @@ function draw() {
     ctx.lineTo(30, 360); // bottom left
     ctx.closePath(); // add last straight line,
     ctx.stroke();
+
+    // Rows
+    for (let i = 0; i < 4; i++) {
+      // Columns
+      for (let j = 0; j < 3; j++) {
+        ctx.beginPath();
+        const x = 270 + j * 50;
+        const y = 30 + i * 50;
+        const radius = 20;
+        const startAngle = 0;
+        const endAngle = Math.PI + (Math.PI * j) / 2; // 1PI = Half, 1.5PI = Quarter, 2PI = Full
+        const counterclockwise = i % 2 === 0;
+        ctx.arc(x, y, radius, startAngle, endAngle, counterclockwise);
+        if (i > 1) {
+          ctx.fill();
+        } else {
+          ctx.stroke();
+        }
+        console.log(i, j, x, y, radius, startAngle, endAngle, counterclockwise);
+      }
+    }
   }
 }
 
