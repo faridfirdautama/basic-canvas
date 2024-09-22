@@ -26,7 +26,7 @@ function draw() {
     // arc (x, y, radius, startAngle, endAngle, counterclockwise)
     // arcTo(x1, y1, x2, y2, radius)
     ctx.beginPath();
-    ctx.arc(60, 200, 50, 0, 1.5 * Math.PI, true); // outer
+    ctx.arc(60, 200, 50, 0, 2 * Math.PI, true); // outer
     ctx.moveTo(95, 200); // remove starting line (x1 + radius1)
     ctx.arc(60, 200, 35, 0, Math.PI, false); // inner
     ctx.moveTo(50, 185); // (next x + radius, next y)
@@ -70,6 +70,18 @@ function draw() {
         console.log(i, j, x, y, radius, startAngle, endAngle, counterclockwise);
       }
     }
+
+    // Bezier (cp1x, cp1y, cp2x, cp2y, x, y)
+    // Quadratic curves (cp1x, cp1y, x, y)
+    ctx.beginPath();
+    ctx.moveTo(10, 420);
+    ctx.quadraticCurveTo(11, 385, 60, 385); // top left
+    ctx.quadraticCurveTo(120, 385, 120, 420); // top right
+    ctx.quadraticCurveTo(120, 450, 50, 450); // bottom right
+    ctx.quadraticCurveTo(30, 470, 12, 470); // tail: right
+    ctx.quadraticCurveTo(25, 470, 30, 450); // tail: left
+    ctx.quadraticCurveTo(11, 450, 10, 420); // bottom left
+    ctx.stroke();
   }
 }
 
