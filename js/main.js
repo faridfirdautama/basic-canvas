@@ -82,7 +82,34 @@ function draw() {
     ctx.quadraticCurveTo(25, 470, 30, 450); // tail: left
     ctx.quadraticCurveTo(11, 450, 10, 420); // bottom left
     ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(75, 40);
+    ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+    ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+    ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(200, 250);
+    ctx.bezierCurveTo(190, 230, 170, 240, 170, 240);
+    ctx.fill();
   }
 }
 
-draw();
+//draw();
+
+function main() {
+  const canvas = document.getElementById("canvas");
+  const gl = canvas.getContext("webgl");
+
+  if (gl === null) {
+    alert("WebGL not supported");
+    return;
+  }
+
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+}
+
+main();
